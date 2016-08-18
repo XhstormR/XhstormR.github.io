@@ -367,56 +367,8 @@
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="http://apps.bdimg.com/libs/nprogress/0.2.0/nprogress.min.js"></script>
     <script>
-    $(document).ready(function () {
-    var delay = 1;
-    var DELAY_STEP = 225;
-    var animationOptions = { opacity: 1, top: 0};
-    $('h1').animate(animationOptions).promise()
-    .pipe(animateMain)
-    .pipe(animateLocationIcon);
-    function animateMain() {
-    var dfd = $.Deferred();
-    var els = $('.animate-init');
-    var size = els.size();
-    els.each(function (index, el) {
-    delay++;
-    $(el).delay(index * DELAY_STEP)
-    .animate(animationOptions);
-    (size - 1 === index) && dfd.resolve();
-    });
-    return dfd.promise();
-    }
-    function animateLocationIcon() {
-    $('.location-icon').delay(delay * DELAY_STEP).animate({
-    opacity: 1,
-    top: 0
-    }).promise().done(animationQuote);
-    }
-    function animationQuote() {}
-    });
-
-    $(document).ready(function () {
-    NProgress.start();
-    NProgress.set(0.7);
-    });
-    $(window).load(function () {
-    NProgress.done();
-    });
-
-    var OriginTitile = document.title;
-    var titleTime;
-    document.addEventListener('visibilitychange', function() {
-    if (document.hidden) {
-        document.title = '(つェ⊂)我藏好了哦~ ' + OriginTitile;
-        clearTimeout(titleTime);
-    }
-    else {
-        document.title = '(*´∇｀*) 被你发现啦~ ' + OriginTitile;
-        titleTime = setTimeout(function() {
-            document.title = OriginTitile;
-        }, 2000);
-    }
-    });
+      $(document).ready(function(){function b(){}var c=1,d={opacity:1,top:0};$("h1").animate(d).promise().pipe(function(){var e=$.Deferred(),a=$(".animate-init"),b=a.size();a.each(function(a,f){c++;$(f).delay(225*a).animate(d);b-1===a&&e.resolve()});return e.promise()}).pipe(function(){$(".location-icon").delay(225*c).animate({opacity:1,top:0}).promise().done(b)})});$(document).ready(function(){NProgress.start();NProgress.set(.7)});$(window).load(function(){NProgress.done()});
+      var OriginTitile=document.title,titleTime;document.addEventListener("visibilitychange",function(){document.hidden?(document.title="(\u3064\u30a7\u2282)\u6211\u85cf\u597d\u4e86\u54e6~ "+OriginTitile,clearTimeout(titleTime)):(document.title="(*\u00b4\u2207\uff40*) \u88ab\u4f60\u53d1\u73b0\u5566~ "+OriginTitile,titleTime=setTimeout(function(){document.title=OriginTitile},2E3))});
     </script>
     <audio src="./audio.mp3" autoplay loop></audio>
   </body>
